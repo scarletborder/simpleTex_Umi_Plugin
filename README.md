@@ -12,4 +12,4 @@ requests
 [DrissionPage >= 4.0](https://g1879.gitee.io/drissionpagedocs/) 用于启动无头浏览器，使用selenium替代也可以。  
 
 ## 关于proxy设置
-下个版本会修好，暂时建议在使用本插件时关闭代理  
+请在任何一次ocr开始前将全局设置中的代理相关设置好，否则会出现无法请求网络的现象。或者在你的代理软件中过滤umi-ocr  

@@ -120,7 +120,7 @@ class Api:  # 接口
                     files = {"file": ("screenshot.png", binBytes, "image/png")}
                     # get url
                     # with open("./plugins/simpleTexWeb/log.txt", "a") as fout:
-                    #     fout.write(f"\n {time.ctime()}准备请求")
+                    #     fout.write(f"\n {time.ctime()}准备请求 {self.proxies}")
                     resp = requests.post(
                         url,
                         files=files,
