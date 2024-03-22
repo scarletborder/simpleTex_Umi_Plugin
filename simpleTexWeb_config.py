@@ -7,25 +7,15 @@ tr = Translator(__file__, "i18n.csv")
 globalOptions = {
     "title": "simpleTexWeb",
     "type": "group",
-    "proxy_proto": {
-        "title": "Proxies type",
-        "optionsList": [["none", "no proxy"], ["http", "http"], ["https", "https"]],
-        "toolTip": "proxies=http://* or https://* or not use proxy",
+    "host_addr": {
+        "title": "host_addr",
+        "default": "127.0.0.1:12933/upload/",
+        "toolTip": "address of the deployed API server",
     },
-    "proxy_addr": {
-        "title": "proxy address",
-        "default": "127.0.0.1:7890",
-        "toolTip": "if you choose [no proxy] in [proxy_proto], this option is disable",
-    },
-    "api_key": {
-        "title": "Api Key",
+    "token": {
+        "title": "Authorization token to the deployed API server",
         "default": "web",
-        "toolTip": "Fill your api key here, you can apply one in simpletex.cn. If you fill `web` here, plugin will try to call web api without an api_key",
-    },
-    "chromium_exe": {
-        "title": "chromium path",
-        "default": r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-        "toolTip": "fill `chrome://version` in chrome or `edge://version` in edge to find the path",
+        "toolTip": "Fill your token here. Maybe empty if remote not set this",
     },
     "timeout": {
         "title": "timeout",
@@ -47,6 +37,6 @@ localOptions = {
             ["document", tr("文档")],
             ["auto", tr("自动检测")],
         ],
-        "toolTip": "this option is disable when `api_key` is not `web`",
+        "toolTip": "rec mode",
     },
 }
