@@ -57,14 +57,23 @@ class Api:  # 接口
         result = json.loads(resp.text)
         # with open("./plugins/simpleTexWeb/log.txt", "a") as fout:
         #     fout.write(f"\n {result}")
+
         if result["status"] is False:
             return {
                 "code": 103,
                 "data": f"failed when local pharsing response from remote - {str(result)}",
             }
 
-        confident = result["res"]["conf"]
-        mdText = result["res"]["info"]
+        result = result["res"]
+        rec_type = result["type"]
+
+        confident = 1.0
+        mdText = "NULL"
+        if rec_type == "formula":
+            confident = result["res"]["conf"]
+            mdText = result["res"]["info"]
+        elif rec_type == "doc":
+            mdText = result["info"]["markdown"]
         # with open("./plugins/simpleTexWeb/log.txt", "a") as fout:
         #     fout.write(f"\n {mdText} {confident} return")
         res = {
